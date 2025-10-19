@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sites à vendre | Buildora</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-content h3 {
+      margin: 0 0 10px;
+    }
+    .btn {
+      display: inline-block;
+      background: #007bff;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nos sites à vendre</h1>
+    <p>Découvrez nos créations prêtes à l'emploi</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <img src="images/shopora-preview.png" alt="Shopora">
+      <div class="card-content">
+        <h3>Shopora</h3>
+        <p>Un site e-commerce complet et moderne, prêt à être lancé.</p>
+        <a href="https://buildora936.github.io/www.shopora.com/" class="btn">Voir le site</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/techify-preview.png" alt="Techify">
+      <div class="card-content">
+        <h3>Techify</h3>
+        <p>Site professionnel pour agences tech et startups.</p>
+        <a href="#" class="btn">Voir le site</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/portfoliopro-preview.png" alt="Portfolio Pro">
+      <div class="card-content">
+        <h3>Portfolio Pro</h3>
+        <p>Un site élégant pour les freelances et créateurs.</p>
+        <a href="#" class="btn">Voir le site</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
