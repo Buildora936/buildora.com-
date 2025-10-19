@@ -43,7 +43,17 @@
     <p>Nous créons votre site selon vos besoins : design, fonctionnalités et contenu personnalisé.</p>
     <a href="#contact" class="btn">Demander un devis</a>
   </section>
+<section id="contact-form" class="contact-section">
+  <h2>Demander un devis</h2>
+  <p>Remplissez le formulaire ci-dessous et nous vous répondrons sous 24 heures.</p>
 
+  <form id="contactForm" action="https://formspree.io/f/mleqkxyz" method="POST">
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
+    <textarea name="message" placeholder="Décrivez votre projet" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
   <footer id="contact">
     <h2>Contactez-nous</h2>
     <p>Email : contact@buildora.com</p>
