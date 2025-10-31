@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buildora - Connexion & Inscription</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #4a00e0, #8e2de2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 16px;
+    }
+
+    input::placeholder {
+      color: #ddd;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      color: #4a00e0;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #e2e2e2;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .logout-btn {
+      background: #ff5252;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔥 Buildora Auth 🔥</h2>
+
+    <h3>Créer un compte</h3>
+    <input id="emailInscription" type="email" placeholder="Email" />
+    <input id="passwordInscription" type="password" placeholder="Mot de passe" />
+    <button onclick="inscrire()">S'inscrire</button>
+
+    <div class="divider">── ou ──</div>
+
+    <h3>Se connecter</h3>
+    <input id="emailConnexion" type="email" placeholder="Email" />
+    <input id="passwordConnexion" type="password" placeholder="Mot de passe" />
+    <button onclick="connexion()">Se connecter</button>
+
+    <button class="logout-btn" onclick="deconnexion()">Se déconnecter</button>
+  </div>
+
+  <!-- 🔥 Firebase + Authentification -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword, 
+      signOut 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // ⚙️ Configuration Firebase (remplace les valeurs ci-dessous par les tiennes)
+    const firebaseConfig = {
+      apiKey: "TA_CLE_API_ICI",
+      authDomain: "TON_PROJET.firebaseapp.com",
+      projectId: "TON_PROJET",
+      storageBucket: "TON_PROJET.appspot.com",
+      messagingSenderId: "XXXXXXXXXXX",
+      appId: "1:XXXXXXXXXXX:web:XXXXXXXXXXXXXX"
+    };
+
+    // 🔥 Initialisation de Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // 🟩 Fonction d’inscription
+    window.inscrire = function () {
+      const email = document.getElementById("emailInscription").value;
+      const password = document.getElementById("passwordInscription").value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("✅ Compte créé avec succès !");
+        })
+        .catch((error) => {
+          alert("Erreur : " + error.message);
+        });
+    };
+
+    // 🟦 Fonction de connexion
+    window.connexion = function () {
+      const email = document.getElementById("emailConnexion").value;
+      const password = document.getElementById("passwordConnexion").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("🎉 Connexion réussie !");
+          window.location.href = "dashboard.html"; // page après connexion
+        })
+        .catch((error) => {
+          alert("Erreur : " + error.message);
+        });
+    };
+
+    // 🔴 Fonction de déconnexion
+    window.deconnexion = function () {
+      signOut(auth)
+        .then(() => {
+          alert("👋 Déconnexion réussie !");
+        })
+        .catch((error) => {
+          alert("Erreur : " + error.message);
+        });
+    };
+  </script>
+</body>
+</html>
