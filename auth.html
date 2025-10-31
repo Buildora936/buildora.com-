@@ -100,7 +100,8 @@
         .then((userCredential) => {
           alert("Connexion réussie ✅");
           console.log(userCredential.user);
-        })
+        window.location.href = "dashboard.html"; // page après connexion
+      })
         .catch((error) => {
           alert("Erreur : " + error.message);
         });
