@@ -1,130 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sites à vendre | Buildora</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buildora site - site à vendre</title>
   <style>
+    /* ---- Style Global ---- */
     body {
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      background: #f9f9f9;
-      color: #333;
+      font-family: "Poppins", sans-serif;
+      background: #f9fafb;
+      color: #222;
     }
     header {
-      background: #111;
-      color: #fff;
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
+      color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 60px 20px;
     }
-    .container {
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* ---- Section des Apps ---- */
+    .apps-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
-    .card {
+    .app-card {
       background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       overflow: hidden;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .card:hover {
+    .app-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .app-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
     }
-    .card-content {
-      padding: 1rem;
+    .app-content {
+      padding: 20px;
     }
-    .card-content h3 {
+    .app-content h3 {
       margin: 0 0 10px;
+      font-size: 1.3rem;
+      color: #1e3a8a;
+    }
+    .app-content p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      color: #444;
+    }
+    .price {
+      font-weight: bold;
+      color: #2563eb;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
     }
     .btn {
       display: inline-block;
-      background: #007bff;
-      color: white;
-      padding: 0.7rem 1.2rem;
-      border-radius: 10px;
       text-decoration: none;
+      background: #2563eb;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
       transition: background 0.3s;
     }
     .btn:hover {
-      background: #0056b3;
+      background: #1e3a8a;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      text-align: center;
+      background: #1e3a8a;
+      color: white;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Nos sites à vendre</h1>
-    <p>Découvrez nos créations prêtes à l'emploi</p>
+    <h1>Buildora Apps</h1>
+    <p>Découvrez nos applications prêtes à l’emploi — modernes, rentables et performantes.</p>
   </header>
 
-  <section class="sites-container">
+  <section class="apps-container">
+    <!-- App 1 -->
+    <div class="app-card">
+      <div class="app-image" style="background-image: url('https://cdn.pixabay.com/photo/2017/09/04/18/40/ecommerce-2711550_1280.jpg');"></div>
+      <div class="app-content">
+        <h3>Shopora </h3>
+        <p>site web  e-commerce complète pour boutiques modernes. Design fluide et rapide.</p>
+        <div class="price">20 000 $</div>
+        <a href="https'" target="_blank" class="btn-view">voir le site</a>
+      </div>
+    </div>
 
-  <div class="site-card">
-    <h2>Tehcify</h2>
-    <p>Idéal pour entreprises et indépendants souhaitant présenter leurs services ou produit avec élégance.
-    au moins: $21 000 disponible</p>
-    <a href="https://buildora936.github.io/TECHIFY.com/" target="_blank" class="btn-view">Voir le site</a>
-    <a href="contact.html?site=Site%20Vitrine%20Professionnel" class="btn-buy">discuter ce site</a>
-  </div>
+    <!-- App 2 -->
+    <div class="app-card">
+      <div class="app-image" style="background-image: url('https://cdn.pixabay.com/photo/2015/09/05/21/51/doctor-925532_1280.jpg');"></div>
+      <div class="app-content">
+        <h3>Techify</h3>
+        <p>Plateforme de rendez-vous médicaux en ligne — intuitive et sécurisée.</p>
+        <div class="price">20 000 $</div>
+        <a href="#" class="btn">Voir la démo</a>
+      </div>
+    </div>
 
-  <div class="site-card">
-    <h2>Shopora</h2>
-    <p>Un site e-commerce rapide et responsive pour vendre vos produits facilement.
-   au moins: $22 000 disponible </p>
-    <a href="https://buildora936.github.io/www.shopora.com/index.html" target="_blank" class="btn-view">Voir le site</a>
-    <a href="contact.html?site=Boutique%20en%20Ligne%20Moderne" class="btn-buy">discuter ce site</a>
-  </div>
+    <!-- App 3 -->
+    <div class="app-card">
+      <div class="app-image" style="background-image: url('https://cdn.pixabay.com/photo/2023/06/09/09/39/artificial-intelligence-8051010_1280.jpg');"></div>
+      <div class="app-content">
+        <h3>BuildAI</h3>
+        <p>Assistant IA intelligent pour entreprises et startups. Propulsé par GPT.</p>
+        <div class="price">35 000 $</div>
+        <a href="#" class="btn">Voir la démo</a>
+      </div>
+    </div>
 
-  <div class="site-card">
-    <h2>Learnora</h2>
-    <p>Parfait pour les ecole, enseigant ou tout societé éducatif.
-  au moins: $20 000 disponible  </p>
-    <a href="https://buildora936.github.io/learnora.com/" target="_blank" class="btn-view">Voir le site</a>
-    <a href="contact.html?site=Portfolio%20Créatif" class="btn-buy">duscuter ce site</a>
-  </div>
-    <div class="site-card">
-    <h2>Carora</h2>
-    <p>Parfait pour les entreprise voiture motos ou toute sorte de vehiculs.
-  au moins: $35 000 disponible  </p>
-    <a href="https://buildora936.github.io/CARORA.com/" target="_blank" class="btn-view">Voir le site</a>
-    <a href="contact.html?site=Portfolio%20Créatif" class="btn-buy">duscuter ce site</a>
-  </div>
-     <div class="site-card">
-    <h2>BuildAI</h2>
-    <p>Parfait pour les entreprise AI.
-  au moins: $35 000 disponible  </p>
-    <a href="https://buildora936.github.io/buildAI.com/" target="_blank" class="btn-view">Voir le site</a>
-    <a href="contact.html?site=Portfolio%20Créatif" class="btn-buy">duscuter ce site</a>
-  </div>
-<style>
-.btn-view {
-  background-color: #0078ff;
-  color: white;
-}
+    <!-- App 4 -->
+    <div class="app-card">
+      <div class="app-image" style="background-image: url('https://cdn.pixabay.com/photo/2016/03/27/07/08/car-1281640_1280.jpg');"></div>
+      <div class="app-content">
+        <h3>Carora </h3>
+        <p>Marketplace automobile moderne — vendez et achetez des voitures facilement.</p>
+        <div class="price">25 000 $</div>
+        <a href="#" class="btn">Voir la démo</a>
+      </div>
+    </div>
 
-.btn-view:hover {
-  background-color: #005fcc;
-}
+    <!-- App 5 -->
+    <div class="app-card">
+      <div class="app-image" style="background-image: url('https://cdn.pixabay.com/photo/2016/03/09/09/17/books-1245690_1280.jpg');"></div>
+      <div class="app-content">
+        <h3>Learnora</h3>
+        <p>Plateforme d’apprentissage en ligne avec suivi des étudiants et quiz interactifs.</p>
+        <div class="price">18 000 $</div>
+        <a href="#" class="btn">Voir la démo</a>
+      </div>
+    </div>
+  </section>
 
-.btn-buy {
-  background-color: #00c853;
-  color: white;
-}
+  <footer>
+    © 2025 Buildora — <a href="https://buildora936.github.io/buildora.com-/">Visitez le site principal</a>
+  </footer>
 
-.btn-buy:hover {
-  background-color: #009624;} 
-
-  
-</section>
 </body>
 </html>
-.
