@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buildora - Tableau de bord</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      height: 100vh;
+    }
+    /* --- Sidebar --- */
+    .sidebar {
+      width: 240px;
+      background: #0d6efd;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sidebar h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+    .menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .menu a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .logout-btn {
+      background: white;
+      color: #0d6efd;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .logout-btn:hover {
+      background: #e9ecef;
+    }
+    /* --- Main content --- */
+    .main {
+      flex: 1;
+      padding: 20px 30px;
+      overflow-y: auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+    header h1 {
+      font-size: 22px;
+      color: #333;
+    }
+    header span {
+      font-weight: bold;
+      color: #0d6efd;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: #0d6efd;
+      margin-top: 0;
+    }
+    .card p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
 
+  <div class="sidebar">
+    <div>
+      <h2>Buildora</h2>
+      <div class="menu">
+        <a href="#">🏠 Accueil</a>
+        <a href="#">📁 Mes projets</a>
+        <a href="#">⚙️ Paramètres</a>
+        <a href="#">📞 Support</a>
+      </div>
+    </div>
+    <button class="logout-btn" id="logout">Se déconnecter</button>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Bienvenue, <span id="user-email">Utilisateur</span></h1>
+    </header>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>📊 Statistiques</h3>
+        <p>Visualisez vos performances et activités récentes sur Buildora.</p>
+      </div>
+      <div class="card">
+        <h3>🛠️ Mes outils</h3>
+        <p>Accédez rapidement à vos outils préférés et vos projets récents.</p>
+      </div>
+      <div class="card">
+        <h3>💬 Messages</h3>
+        <p>Consultez les notifications, commentaires et échanges clients.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } 
+      from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDSVZaNw9RMQzLGEWJtJycnZFNU0mgtRQY",
+      authDomain: "buildora-ded57.firebaseapp.com",
+      projectId: "buildora-ded57",
+      storageBucket: "buildora-ded57.firebasestorage.app",
+      messagingSenderId: "441122460577",
+      appId: "1:441122460577:web:06783462921cf48ee2f1e0",
+      measurementId: "G-XR48YND0DK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Vérifier si l'utilisateur est connecté
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("user-email").textContent = user.email;
+      } else {
+        // Rediriger si pas connecté
+        window.location.href = "auth.html";
+      }
+    });
+
+    // Déconnexion
+    document.getElementById("logout").addEventListener("click", () => {
+      signOut(auth).then(() => {
+        alert("Déconnexion réussie 👋");
+        window.location.href = "auth.html";
+      }).catch((error) => {
+        alert("Erreur : " + error.message);
+      });
+    });
+  </script>
+
+</body>
+</html>
