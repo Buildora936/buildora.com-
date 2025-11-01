@@ -41,6 +41,9 @@
     <h1>Buildora</h1>
     <p class="slogan">Des sites web et apps qui transforment vos projets en succès</p>
     <nav>
+      <button class="auth-btn" onclick="window.location.href='auth.html'">
+  Se connecter / S’inscrire
+</button>
       <a href="#accueil">Accueil</a>
       <a href="#logiciels">Nos logiciels</a>
       <a href="#contact">Contact</a>
@@ -61,6 +64,25 @@
       <a href="sites.html" class="btn-pro">Acheter un site maintenant</a>
       <a href="apps.html" class="btn-pro">Acheter un apps maintenant</a>
 <style>
+.auth-btn {
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
+  background: linear-gradient(135deg, #0b5ed7, #520dc2);
+}
+  
 .btn-pro {
   display: inline-block;
   background: linear-gradient(135deg, #007bff, #00c6ff);
