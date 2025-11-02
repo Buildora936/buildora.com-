@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buildora - Tableau de bord</title>
   <style>
+    #mes-sites {
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.site-list {
+  display: grid;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.site-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.btn {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn.disabled {
+  background: gray;
+  pointer-events: none;
+}
     * {
       box-sizing: border-box;
     }
@@ -138,7 +170,31 @@
       </div>
     </div>
   </div>
+<!-- Section : Mes Sites Loués -->
+<section id="mes-sites" class="p-4">
+  <h2>📦 Mes Sites Loués</h2>
+  <p>Voici la liste des sites web que vous avez loués sur Buildora :</p>
 
+  <div class="site-list">
+    <!-- Exemple de site loué -->
+    <div class="site-item">
+      <h3>Shopora</h3>
+      <p><strong>Date de location :</strong> 01/11/2025</p>
+      <p><strong>Durée :</strong> 30 jours</p>
+      <p><strong>Statut :</strong> Actif ✅</p>
+      <a href="https://buildora936.github.io/shopora/" target="_blank" class="btn">Accéder à mon site</a>
+    </div>
+
+    <!-- Autre exemple -->
+    <div class="site-item">
+      <h3>Carora</h3>
+      <p><strong>Date de location :</strong> 15/10/2025</p>
+      <p><strong>Durée :</strong> Expirée</p>
+      <p><strong>Statut :</strong> Inactif ❌</p>
+      <a href="#" class="btn disabled">Accès expiré</a>
+    </div>
+  </div>
+</section>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } 
